@@ -3,7 +3,7 @@ import Brand from './Brand.astro';
 
 interface Props { active: 'dashboard' | 'new' | 'questionnaire' }
 const { active } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <div class="app-layout">
   <aside class="app-sidebar">

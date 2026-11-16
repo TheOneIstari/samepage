@@ -1,6 +1,6 @@
 ---
 import Brand from './Brand.astro';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 <header class="site-header">
   <div class="site-shell site-header__inner">

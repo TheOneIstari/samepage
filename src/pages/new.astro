@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppShell from '../components/AppShell.astro';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <BaseLayout title="New questionnaire — SamePage" description="Create a SamePage questionnaire prototype." noindex>
@@ -195,7 +195,7 @@ const base = import.meta.env.BASE_URL;
 <script>
   type DemoQuestion = { text: string; options: string[]; answer: number; topic: string };
 
-  const base = import.meta.env.BASE_URL;
+  const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   const starterQuestions: DemoQuestion[] = [
     { text: 'What counts as one revision round?', options: ['Feedback collected across the whole project', 'A separate round for every page'], answer: 0, topic: 'Scope' },

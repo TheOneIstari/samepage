@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Brand from '../../components/Brand.astro';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <BaseLayout title="Website redesign agreement check — SamePage" description="Client-facing SamePage questionnaire prototype." noindex bodyClass="client-page">
