@@ -26,7 +26,7 @@ Use self-hosted IBM Plex Sans Variable throughout. Distinction comes from size, 
 
 # Layout
 
-Marketing pages use generous vertical rhythm and demonstrate the product mechanic above the fold. Application pages use one main work column with a restrained navigation rail. Related content sits close; major phases have larger separation. Use dividers and whitespace before containers.
+Marketing pages use generous vertical rhythm and demonstrate the product mechanic above the fold. Application pages deliberately switch into a denser workspace: a dark navigation rail, cool gray canvas, compact prototype notice, and one main work column. This separation must make it immediately obvious that the visitor left the public website and entered the product demo. Related content sits close; major phases have larger separation. Use dividers and whitespace before containers.
 
 # Elevation & depth
 
@@ -43,6 +43,7 @@ Controls use 8px radius. Large surfaces use 12px at most. Pills are reserved for
 - Question choices are full-width radio rows with a clear selected state.
 - Tables use whitespace and row dividers, not nested cards.
 - Alerts explain what happened and what the person can do next.
+- The application shell always labels itself as an interactive prototype and provides an obvious route back to the public website.
 
 # Do
 

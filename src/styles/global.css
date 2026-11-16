@@ -102,20 +102,34 @@ img, svg { max-width: 100%; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--action); box-shadow: 0 0 0 3px rgba(33, 70, 208, .1); }
 .field__hint { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.45; }
 
-.app-layout { min-height: 100vh; display: grid; grid-template-columns: 236px minmax(0, 1fr); background: var(--canvas); }
-.app-sidebar { position: sticky; top: 0; height: 100vh; padding: 28px 20px; border-right: 1px solid var(--rule); background: var(--surface); display: flex; flex-direction: column; }
+.app-layout { min-height: 100vh; display: grid; grid-template-columns: 248px minmax(0, 1fr); background: #eef1f5; }
+.app-sidebar { position: sticky; top: 0; height: 100vh; padding: 26px 20px 22px; border-right: 1px solid #273248; background: #111827; color: #f7f8fb; display: flex; flex-direction: column; }
+.app-sidebar__brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.app-sidebar__brand > span { padding: 3px 6px; border: 1px solid #536078; border-radius: 3px; color: #b8c1d2; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.app-sidebar .brand { color: white; }
+.app-sidebar .brand__mark::before, .app-sidebar .brand__mark::after { border-color: #91a6ff; }
+.workspace-context { margin: 28px -4px 0; padding: 15px 14px; border-block: 1px solid #313b50; }
+.workspace-context small, .workspace-context strong { display: block; }
+.workspace-context small { margin-bottom: 4px; color: #8f9bb0; font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.workspace-context strong { color: #f7f8fb; font-size: .86rem; font-weight: 600; }
 .app-sidebar__nav { display: grid; gap: 4px; margin-top: 38px; }
-.app-sidebar__nav a { display: flex; align-items: center; gap: 10px; padding: 10px 11px; border-radius: 7px; color: var(--muted); text-decoration: none; font-size: .88rem; font-weight: 550; }
-.app-sidebar__nav a:hover, .app-sidebar__nav a[aria-current="page"] { color: var(--ink); background: var(--canvas); }
-.app-sidebar__nav a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--action); }
+.app-sidebar__nav a { display: flex; align-items: center; gap: 10px; padding: 10px 11px; border-radius: 6px; color: #aeb8ca; text-decoration: none; font-size: .88rem; font-weight: 550; }
+.app-sidebar__nav a:hover { color: white; background: #1b2538; }
+.app-sidebar__nav a[aria-current="page"] { color: white; background: #24314a; box-shadow: inset 3px 0 0 #91a6ff; }
 .app-sidebar__nav svg { width: 18px; height: 18px; }
-.app-sidebar__footer { margin-top: auto; padding-top: 22px; border-top: 1px solid var(--rule); }
+.app-sidebar__footer { margin-top: auto; padding-top: 22px; border-top: 1px solid #313b50; }
 .account { display: flex; align-items: center; gap: 10px; }
-.account__avatar { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--action-soft); color: var(--action); font-size: .78rem; font-weight: 750; }
+.account__avatar { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #293654; color: #c6d0ff; font-size: .78rem; font-weight: 750; }
 .account__name { font-size: .83rem; font-weight: 650; }
-.account__plan { color: var(--muted); font-size: .74rem; }
-.app-main { min-width: 0; padding: 32px clamp(22px, 5vw, 64px) 72px; }
+.account__plan { color: #8f9bb0; font-size: .74rem; }
+.app-sidebar__exit { display: inline-block; margin-top: 18px; color: #aeb8ca; font-size: .76rem; font-weight: 600; text-decoration: none; }
+.app-sidebar__exit:hover { color: white; }
+.app-main { min-width: 0; padding: 0 clamp(22px, 5vw, 64px) 72px; }
 .app-main__inner { width: min(100%, 1120px); margin-inline: auto; }
+.demo-notice { min-height: 45px; margin: 0 calc(clamp(22px, 5vw, 64px) * -1) 34px; padding: 0 clamp(22px, 5vw, 64px); border-bottom: 1px solid #d5dae3; background: #f8f9fb; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #6b7587; font-size: .72rem; }
+.demo-notice b { color: var(--ink); font-weight: 650; }
+.demo-notice a { color: var(--action); font-weight: 650; text-decoration: none; }
+.demo-notice a:hover { text-decoration: underline; }
 .app-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
 .app-title { margin: 0 0 7px; font-size: clamp(1.75rem, 3vw, 2.45rem); letter-spacing: -.035em; font-weight: 570; }
 .app-subtitle { margin: 0; color: var(--muted); line-height: 1.55; }
@@ -126,6 +140,8 @@ img, svg { max-width: 100%; }
 
 .mobile-appbar { display: none; }
 .mobile-appbar .brand { font-size: .98rem; }
+.mobile-appbar__identity { display: flex; align-items: center; gap: 9px; }
+.mobile-appbar__identity > span { padding-left: 9px; border-left: 1px solid #455168; color: #aeb8ca; font-size: .67rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
 
 .toast { position: fixed; right: 24px; bottom: 24px; z-index: 80; padding: 12px 16px; border-radius: 8px; color: white; background: var(--ink); box-shadow: var(--shadow); font-size: .86rem; transform: translateY(20px); opacity: 0; pointer-events: none; transition: .2s ease; }
 .toast.is-visible { opacity: 1; transform: translateY(0); }
@@ -139,9 +155,14 @@ img, svg { max-width: 100%; }
   .marketing-section { padding-block: 72px; }
   .app-layout { display: block; padding-top: 62px; }
   .app-sidebar { display: none; }
-  .mobile-appbar { position: fixed; inset: 0 0 auto; z-index: 60; height: 62px; padding: 0 16px; border-bottom: 1px solid var(--rule); background: rgba(255,255,255,.96); display: flex; align-items: center; justify-content: space-between; }
+  .mobile-appbar { position: fixed; inset: 0 0 auto; z-index: 60; height: 62px; padding: 0 16px; border-bottom: 1px solid #273248; background: #111827; color: white; display: flex; align-items: center; justify-content: space-between; }
+  .mobile-appbar .brand { color: white; }
+  .mobile-appbar .brand__mark::before, .mobile-appbar .brand__mark::after { border-color: #91a6ff; }
   .mobile-appbar__menu { border: 0; background: transparent; padding: 8px; cursor: pointer; }
-  .app-main { padding: 24px 16px 56px; }
+  .app-main { padding: 0 16px 56px; }
+  .demo-notice { min-height: 42px; margin: 0 -16px 24px; padding: 0 16px; }
+  .demo-notice span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .demo-notice a { white-space: nowrap; }
   .app-header { align-items: stretch; flex-direction: column; margin-bottom: 24px; }
   .app-header .button { width: 100%; }
 }
