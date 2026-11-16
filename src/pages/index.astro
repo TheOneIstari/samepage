@@ -4,237 +4,153 @@ import SiteHeader from '../components/SiteHeader.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
-<BaseLayout title="SamePage — Find misunderstandings before they become disputes" description="Turn agreements into short comprehension checks and reveal mismatched expectations before anyone signs.">
+<BaseLayout title="SamePage — Check what your client understood" description="Turn an agreement into a short client check and find mismatched expectations before work begins.">
   <SiteHeader />
   <main id="main">
     <section class="hero site-shell">
       <div class="hero__copy">
-        <p class="eyebrow">Agreement clarity, before signing</p>
-        <h1 class="display">Find the misunderstanding before it becomes a dispute.</h1>
-        <p class="lede">SamePage turns an agreement into a short comprehension check, so you and your client can align expectations while they are still easy to fix.</p>
+        <p class="eyebrow">For service businesses, before work begins</p>
+        <h1>Know what your client thinks the agreement means.</h1>
+        <p class="lede">SamePage turns an agreement into a short multiple-choice check. Your client answers through a private link; you see exactly which expectations do not match.</p>
         <div class="hero__actions">
-          <a class="button button--primary" href={`${base}new/`}>Try the interactive demo</a>
-          <a class="button button--quiet" href="#example">See a real example ↓</a>
+          <a class="button button--primary" href={`${base}dashboard/`}>Open the product demo</a>
+          <span>No signup · sample data</span>
         </div>
-        <p class="hero__note">Your original document is never stored. Every generated question stays under your control.</p>
       </div>
 
-      <div class="alignment-demo" id="example" aria-label="Example of a contract misunderstanding">
-        <div class="alignment-demo__top">
-          <span class="alignment-demo__doc">Website redesign agreement</span>
-          <span class="status status--review">Needs alignment</span>
+      <div class="product-story" aria-label="How SamePage finds a misunderstanding">
+        <div class="story-step">
+          <span class="story-step__number">1</span>
+          <div><small>Agreement says</small><p>“The project includes two revision rounds.”</p></div>
         </div>
-        <div class="clause">
-          <span class="clause__label">Clause 4.2</span>
-          <p>“The project includes two revision rounds.”</p>
+        <div class="story-step">
+          <span class="story-step__number">2</span>
+          <div><small>Client is asked</small><p>What counts as one revision round?</p><span class="selected-answer">A separate round for every page</span></div>
         </div>
-        <div class="interpretations">
-          <div>
-            <span class="interpretations__person">You meant</span>
-            <strong>Two consolidated feedback rounds for the entire project.</strong>
-          </div>
-          <div class="interpretations__mismatch">
-            <span class="interpretations__person">Your client understood</span>
-            <strong>Two revision rounds for every individual page.</strong>
-          </div>
-        </div>
-        <div class="alignment-demo__footer">
-          <span>Found before signing</span>
-          <a href={`${base}check/demo/`}>Open the client check →</a>
+        <div class="story-result">
+          <span aria-hidden="true">↔</span>
+          <div><small>SamePage finds</small><strong>1 expectation to clarify before kickoff</strong></div>
         </div>
       </div>
     </section>
 
-    <section class="proof-strip" aria-label="SamePage promise">
-      <div class="site-shell proof-strip__inner">
-        <p><strong>Not legal advice.</strong> A practical check that shows where two people read the same words differently.</p>
-        <span>3–10 questions</span><span>No client account</span><span>Reusable question sets</span>
-      </div>
-    </section>
-
-    <section class="marketing-section" id="how-it-works">
+    <section class="workflow" id="how-it-works">
       <div class="site-shell">
         <div class="section-heading">
-          <p class="eyebrow">One focused workflow</p>
-          <h2 class="headline">From agreement to alignment in four deliberate steps.</h2>
+          <p class="eyebrow">How it works</p>
+          <h2 class="headline">A check between sending the agreement and starting the work.</h2>
         </div>
-        <ol class="workflow">
-          <li><span>01</span><div><h3>Upload the agreement</h3><p>The file is read transiently. Add the client and document reference you already use.</p></div></li>
-          <li><span>02</span><div><h3>Review the questions</h3><p>SamePage drafts questions around scope, responsibility, timing and assumptions. You approve every word and intended answer.</p></div></li>
-          <li><span>03</span><div><h3>Share one private link</h3><p>Your client answers three to ten clear questions without creating an account.</p></div></li>
-          <li><span>04</span><div><h3>Clarify what differs</h3><p>See exactly which answers diverge, discuss them, and keep a timestamped record of the result.</p></div></li>
+        <ol class="workflow__steps">
+          <li><span>01</span><div><h3>Create the check</h3><p>Upload an agreement. Review, edit or replace the 3–10 draft questions before anything is shared.</p></div></li>
+          <li><span>02</span><div><h3>Your client answers</h3><p>They open one private link and answer without an account. The original document is not shown or stored.</p></div></li>
+          <li><span>03</span><div><h3>Discuss only the differences</h3><p>SamePage compares their answers with your intended meaning and highlights what needs a conversation.</p></div></li>
         </ol>
       </div>
     </section>
 
-    <section class="marketing-section benefits" id="benefits">
-      <div class="site-shell benefits__grid">
-        <div class="section-heading">
-          <p class="eyebrow">Why a company pays</p>
-          <h2 class="headline">Clarity that saves work, not another document tool.</h2>
-          <p class="lede">SamePage stays out of drafting and signing. Its value is narrower: expose assumptions while they are cheap to discuss.</p>
+    <section class="focus">
+      <div class="site-shell focus__grid">
+        <div>
+          <p class="eyebrow">Deliberately narrow</p>
+          <h2 class="headline">It checks understanding. Nothing more.</h2>
+          <p class="focus__copy">SamePage does not write, edit or sign agreements. It gives both sides a practical moment to catch different interpretations before they become expensive.</p>
         </div>
-        <div class="benefit-ledger">
-          <div><span>Fewer explanation loops</span><p>Clients arrive at kickoff with the important terms already tested.</p></div>
-          <div><span>Earlier warning signals</span><p>See where a client’s expectations differ before accepting avoidable risk.</p></div>
-          <div><span>A useful answer trail</span><p>Keep the questionnaire version, responses and timestamps together.</p></div>
-          <div><span>Better documents over time</span><p>Learn which recurring clauses repeatedly cause confusion across clients.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="marketing-section product-preview">
-      <div class="site-shell">
-        <div class="preview-header">
-          <div><p class="eyebrow">Built for the real task</p><h2 class="headline">No card maze. Just the work in front of you.</h2></div>
-          <a class="button button--secondary" href={`${base}dashboard/`}>Explore the dashboard</a>
-        </div>
-        <div class="preview-window">
-          <div class="preview-window__bar"><span></span><span></span><span></span><strong>SamePage / Questionnaires</strong></div>
-          <div class="preview-window__body">
-            <div class="preview-sidebar"><b>SamePage</b><span class="active">Questionnaires</span><span>New questionnaire</span><span>Insights</span></div>
-            <div class="preview-content">
-              <div class="preview-title"><div><small>Questionnaires</small><strong>Where expectations stand</strong></div><button>New questionnaire</button></div>
-              <div class="preview-row"><div><strong>Website redesign agreement</strong><small>Northwind Studio · SP-2026-041</small></div><span class="status status--review">2 points to align</span><time>Today</time></div>
-              <div class="preview-row"><div><strong>Brand strategy proposal</strong><small>Meridian Coffee · SP-2026-038</small></div><span class="status status--complete">Aligned</span><time>12 Nov</time></div>
-              <div class="preview-row"><div><strong>Photography agreement</strong><small>Atelier West · SP-2026-036</small></div><span class="status status--shared">Shared</span><time>9 Nov</time></div>
-            </div>
-          </div>
+        <div class="scope-list">
+          <div><span>Included</span><p>Question review, client answers, mismatch report and a timestamped answer trail.</p></div>
+          <div><span>Not included</span><p>Contract drafting, legal advice, e-signatures, invoicing or project management.</p></div>
+          <div><span>Privacy</span><p>The source document is processed transiently and not retained. Only approved questions and answers remain.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="marketing-section pricing" id="pricing">
+    <section class="pricing" id="pricing">
       <div class="site-shell pricing__grid">
-        <div class="section-heading">
-          <p class="eyebrow">Straightforward pricing</p>
-          <h2 class="headline">Start manually. Pay when the document should do the first pass.</h2>
+        <div>
+          <p class="eyebrow">Simple pricing</p>
+          <h2 class="headline">Start manually. Add document analysis when it saves time.</h2>
         </div>
-        <div class="pricing-lines">
-          <div class="price-line">
-            <div><strong>Free</strong><p>Build and share questionnaires manually.</p></div>
-            <div class="price-line__price"><strong>€0</strong><span>forever</span></div>
-            <a class="button button--secondary" href={`${base}new/`}>Try it</a>
+        <div class="plans">
+          <div class="plan">
+            <div><strong>Manual</strong><p>Create and share your own questions.</p></div>
+            <span><b>€0</b> forever</span>
           </div>
-          <div class="price-line price-line--featured">
-            <div><strong>SamePage Pro</strong><p>50 AI-assisted document analyses each month.</p></div>
-            <div class="price-line__price"><strong>€19.99</strong><span>per month</span></div>
-            <a class="button button--primary" href={`${base}new/`}>Preview Pro</a>
+          <div class="plan plan--pro">
+            <div><strong>Pro</strong><p>50 AI-assisted document analyses per month.</p></div>
+            <span><b>€19.99</b> / month</span>
           </div>
-          <p class="pricing__fineprint">Every question remains editable. Duplicate an existing questionnaire without using another AI analysis.</p>
+          <a class="button button--primary" href={`${base}dashboard/`}>Explore the full product flow</a>
         </div>
-      </div>
-    </section>
-
-    <section class="closing">
-      <div class="site-shell closing__inner">
-        <p class="eyebrow">Before the signature</p>
-        <h2 class="headline">Make sure you are actually on the same page.</h2>
-        <a class="button button--primary" href={`${base}new/`}>Walk through the prototype</a>
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="site-shell"><span>© 2026 SamePage</span><span>Clarity before commitment.</span><a href="#main">Back to top ↑</a></div></footer>
+  <footer class="footer"><div class="site-shell"><span>© 2026 SamePage</span><span>Check understanding before commitment.</span><a href="#main">Back to top ↑</a></div></footer>
 </BaseLayout>
 
 <style>
-  .hero { min-height: 690px; padding-block: clamp(76px, 10vw, 132px); display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: clamp(48px, 8vw, 110px); }
-  .hero__copy { max-width: 650px; }
-  .hero .display { max-width: 11ch; }
-  .hero__actions { display: flex; align-items: center; gap: 10px; margin-top: 30px; }
-  .hero__note { max-width: 52ch; margin: 23px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
-  .alignment-demo { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; transform: rotate(.35deg); }
-  .alignment-demo__top, .alignment-demo__footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 20px; }
-  .alignment-demo__top { border-bottom: 1px solid var(--rule); }
-  .alignment-demo__doc { font-size: .86rem; font-weight: 650; }
-  .clause { padding: 24px 24px 20px; background: #fbfcfd; }
-  .clause__label { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-  .clause p { margin: 9px 0 0; font-size: 1.12rem; line-height: 1.5; font-weight: 520; }
-  .interpretations { padding: 0 24px 24px; display: grid; gap: 10px; }
-  .interpretations > div { padding: 16px; border: 1px solid var(--rule); border-radius: 8px; display: grid; gap: 5px; }
-  .interpretations__mismatch { background: var(--alignment-soft); border-color: #edc6a8 !important; }
-  .interpretations__person { color: var(--muted); font-size: .74rem; }
-  .interpretations strong { font-size: .91rem; line-height: 1.45; font-weight: 600; }
-  .alignment-demo__footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .78rem; }
-  .alignment-demo__footer a { color: var(--action); font-weight: 650; text-decoration: none; }
-  .proof-strip { border-block: 1px solid var(--rule); background: var(--surface); }
-  .proof-strip__inner { min-height: 82px; display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: .83rem; }
-  .proof-strip p { margin: 0 auto 0 0; }
-  .proof-strip strong { color: var(--ink); }
-  .proof-strip span { white-space: nowrap; }
-  .workflow { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule-strong); }
-  .workflow li { display: grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--rule); }
-  .workflow li > span { color: var(--action); font-size: .78rem; font-weight: 700; letter-spacing: .08em; }
-  .workflow h3 { margin: 0 0 7px; font-size: 1.18rem; font-weight: 620; }
-  .workflow p { max-width: 70ch; margin: 0; color: var(--muted); line-height: 1.6; }
-  .benefits { background: var(--ink); color: white; }
-  .benefits .eyebrow { color: #aebdff; }
-  .benefits .lede { color: #adb6c7; }
-  .benefits__grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(54px, 9vw, 120px); }
-  .benefit-ledger { border-top: 1px solid rgba(255,255,255,.22); }
-  .benefit-ledger > div { display: grid; grid-template-columns: 190px 1fr; gap: 28px; padding: 25px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
-  .benefit-ledger span { font-weight: 620; }
-  .benefit-ledger p { margin: 0; color: #adb6c7; line-height: 1.55; }
-  .preview-header { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
-  .preview-header > div { max-width: 720px; }
-  .preview-window { border: 1px solid var(--rule-strong); border-radius: 12px; background: white; box-shadow: var(--shadow); overflow: hidden; }
-  .preview-window__bar { height: 42px; padding: 0 15px; background: #eef1f5; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 7px; }
-  .preview-window__bar span { width: 9px; height: 9px; background: #c4cad3; border-radius: 50%; }
-  .preview-window__bar strong { margin-left: auto; color: var(--muted); font-size: .68rem; font-weight: 550; }
-  .preview-window__body { min-height: 410px; display: grid; grid-template-columns: 190px 1fr; }
-  .preview-sidebar { padding: 28px 18px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 8px; }
-  .preview-sidebar b { margin-bottom: 28px; }
-  .preview-sidebar span { padding: 9px 10px; color: var(--muted); border-radius: 6px; font-size: .75rem; }
-  .preview-sidebar .active { color: var(--ink); background: var(--canvas); box-shadow: inset 3px 0 0 var(--action); }
-  .preview-content { padding: 36px; }
-  .preview-title { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 28px; }
-  .preview-title small { display: block; color: var(--muted); margin-bottom: 4px; }
-  .preview-title strong { font-size: 1.5rem; }
-  .preview-title button { padding: 10px 13px; border: 0; border-radius: 7px; background: var(--action); color: white; }
-  .preview-row { min-height: 78px; display: grid; grid-template-columns: 1fr auto 60px; align-items: center; gap: 20px; border-top: 1px solid var(--rule); }
-  .preview-row strong, .preview-row small { display: block; }
-  .preview-row strong { font-size: .86rem; }
-  .preview-row small, .preview-row time { margin-top: 4px; color: var(--muted); font-size: .7rem; }
-  .pricing__grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(60px, 10vw, 130px); align-items: start; }
-  .pricing-lines { border-top: 1px solid var(--rule-strong); }
-  .price-line { display: grid; grid-template-columns: 1fr 120px auto; gap: 26px; align-items: center; padding: 25px 0; border-bottom: 1px solid var(--rule); }
-  .price-line > div:first-child strong { font-size: 1.1rem; }
-  .price-line p { margin: 5px 0 0; color: var(--muted); font-size: .86rem; }
-  .price-line__price strong, .price-line__price span { display: block; }
-  .price-line__price strong { font-size: 1.25rem; }
-  .price-line__price span { color: var(--muted); font-size: .72rem; }
-  .price-line--featured { background: var(--action-soft); margin-inline: -20px; padding-inline: 20px; }
-  .pricing__fineprint { color: var(--muted); font-size: .78rem; line-height: 1.5; }
-  .closing { padding-block: 110px; background: white; border-top: 1px solid var(--rule); text-align: center; }
-  .closing__inner { max-width: 760px; }
-  .closing .headline { margin-bottom: 30px; }
+  .hero { min-height: 680px; padding-block: clamp(76px, 10vw, 128px); display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: clamp(52px, 9vw, 120px); }
+  .hero__copy { max-width: 680px; }
+  .hero h1 { max-width: 11ch; margin: 0; font-size: clamp(3rem, 6.2vw, 5.6rem); line-height: .98; letter-spacing: -.058em; font-weight: 560; text-wrap: balance; }
+  .hero .lede { max-width: 58ch; margin: 27px 0 0; }
+  .hero__actions { margin-top: 32px; display: flex; align-items: center; gap: 16px; }
+  .hero__actions > span { color: var(--muted); font-size: .76rem; }
+
+  .product-story { border: 1px solid var(--rule-strong); border-radius: 12px; background: white; box-shadow: var(--shadow); }
+  .story-step { padding: 23px; display: grid; grid-template-columns: 28px 1fr; gap: 14px; border-bottom: 1px solid var(--rule); }
+  .story-step__number { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--rule-strong); border-radius: 50%; color: var(--muted); font-size: .7rem; font-weight: 700; }
+  .story-step small, .story-result small { display: block; margin-bottom: 6px; color: var(--muted); font-size: .69rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .story-step p { margin: 0; font-size: .94rem; line-height: 1.5; font-weight: 580; }
+  .selected-answer { display: block; margin-top: 12px; padding: 10px 12px; border: 1px solid #edc6a8; border-radius: 6px; color: #7d390e; background: var(--alignment-soft); font-size: .82rem; }
+  .story-result { padding: 20px 23px; display: flex; align-items: center; gap: 15px; background: #172033; color: white; border-radius: 0 0 11px 11px; }
+  .story-result > span { color: #ffc18f; font-size: 1.3rem; }
+  .story-result small { color: #aeb6c6; }
+  .story-result strong { font-size: .9rem; line-height: 1.4; }
+
+  .workflow { padding-block: clamp(80px, 10vw, 126px); border-block: 1px solid var(--rule); background: white; }
+  .workflow .section-heading { max-width: 780px; }
+  .workflow__steps { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule-strong); display: grid; grid-template-columns: repeat(3, 1fr); }
+  .workflow__steps li { min-height: 230px; padding: 26px 30px 12px 0; border-right: 1px solid var(--rule); display: flex; flex-direction: column; justify-content: space-between; }
+  .workflow__steps li + li { padding-left: 30px; }
+  .workflow__steps li:last-child { border-right: 0; }
+  .workflow__steps > li > span { color: var(--action); font-size: .75rem; font-weight: 750; letter-spacing: .08em; }
+  .workflow__steps h3 { margin: 0 0 9px; font-size: 1.25rem; font-weight: 620; }
+  .workflow__steps p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+  .focus { padding-block: clamp(82px, 11vw, 138px); background: var(--ink); color: white; }
+  .focus__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(60px, 10vw, 130px); }
+  .focus .eyebrow { color: #9fb2ff; }
+  .focus__copy { max-width: 54ch; margin-top: 24px; color: #adb6c7; line-height: 1.7; }
+  .scope-list { border-top: 1px solid rgba(255,255,255,.26); }
+  .scope-list > div { padding: 24px 0; display: grid; grid-template-columns: 120px 1fr; gap: 28px; border-bottom: 1px solid rgba(255,255,255,.16); }
+  .scope-list span { color: white; font-weight: 620; }
+  .scope-list p { margin: 0; color: #adb6c7; line-height: 1.55; }
+
+  .pricing { padding-block: clamp(82px, 10vw, 126px); }
+  .pricing__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(60px, 10vw, 130px); align-items: start; }
+  .plans { border-top: 1px solid var(--rule-strong); }
+  .plan { min-height: 100px; padding: 22px 0; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; border-bottom: 1px solid var(--rule); }
+  .plan strong { font-size: 1.05rem; }
+  .plan p { margin: 5px 0 0; color: var(--muted); font-size: .84rem; }
+  .plan > span { color: var(--muted); font-size: .75rem; text-align: right; }
+  .plan b { display: block; color: var(--ink); font-size: 1.25rem; }
+  .plans > .button { margin-top: 24px; }
+
   .footer { background: white; border-top: 1px solid var(--rule); }
   .footer > div { min-height: 80px; display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .78rem; }
   .footer a { margin-left: auto; text-decoration: none; }
 
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero__copy { max-width: 760px; }
-    .hero .display { max-width: 13ch; }
-    .alignment-demo { width: min(100%, 640px); transform: none; }
-    .proof-strip__inner { padding-block: 22px; flex-wrap: wrap; }
-    .proof-strip p { flex: 1 0 100%; }
-    .benefits__grid, .pricing__grid { grid-template-columns: 1fr; }
-    .benefits .section-heading, .pricing .section-heading { margin-bottom: 0; }
+    .product-story { width: min(100%, 620px); }
+    .focus__grid, .pricing__grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 650px) {
-    .hero { padding-block: 58px 70px; gap: 42px; }
+  @media (max-width: 700px) {
+    .hero { padding-block: 64px 76px; gap: 46px; }
+    .hero h1 { font-size: clamp(2.75rem, 14vw, 4rem); }
     .hero__actions { align-items: stretch; flex-direction: column; }
-    .workflow li { grid-template-columns: 44px 1fr; gap: 10px; }
-    .benefit-ledger > div { grid-template-columns: 1fr; gap: 8px; }
-    .preview-header { align-items: stretch; flex-direction: column; }
-    .preview-window__body { grid-template-columns: 1fr; }
-    .preview-sidebar { display: none; }
-    .preview-content { padding: 22px 16px; }
-    .preview-row { grid-template-columns: 1fr auto; padding-block: 16px; }
-    .preview-row time { display: none; }
-    .price-line { grid-template-columns: 1fr auto; }
-    .price-line .button { grid-column: 1 / -1; }
+    .hero__actions > span { text-align: center; }
+    .workflow__steps { grid-template-columns: 1fr; }
+    .workflow__steps li, .workflow__steps li + li { min-height: 0; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--rule); gap: 32px; }
+    .scope-list > div { grid-template-columns: 1fr; gap: 8px; }
     .footer > div { padding-block: 24px; flex-wrap: wrap; }
   }
 </style>

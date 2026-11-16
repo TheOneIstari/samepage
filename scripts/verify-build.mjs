@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 
 const pages = [
-  ['dist/index.html', 'Find the misunderstanding'],
+  ['dist/index.html', 'Know what your client thinks the agreement means.'],
   ['dist/dashboard/index.html', 'Questionnaires'],
   ['dist/new/index.html', 'What should your client understand?'],
   ['dist/questionnaire/index.html', 'Answer review'],
@@ -17,7 +17,7 @@ for (const [path, marker] of pages) {
 }
 
 const home = await readFile('dist/index.html', 'utf8');
-for (const href of ['/samepage/new/', '/samepage/dashboard/', '/samepage/check/demo/']) {
+for (const href of ['/samepage/dashboard/', '#how-it-works', '#pricing']) {
   if (!home.includes(`href="${href}"`)) throw new Error(`Homepage is missing ${href}`);
 }
 

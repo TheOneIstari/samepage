@@ -28,6 +28,8 @@ Use self-hosted IBM Plex Sans Variable throughout. Distinction comes from size, 
 
 Marketing pages use generous vertical rhythm and demonstrate the product mechanic above the fold. Application pages deliberately switch into a denser workspace: a dark navigation rail, cool gray canvas, compact prototype notice, and one main work column. This separation must make it immediately obvious that the visitor left the public website and entered the product demo. Related content sits close; major phases have larger separation. Use dividers and whitespace before containers.
 
+The public homepage tells one linear story only: what SamePage does, how the three-step exchange works, what the product deliberately does not do, and what it costs. Avoid separate feature, benefit, dashboard-preview, proof-strip, and closing-pitch sections when they repeat the same promise. The hero must visibly connect an agreement sentence to a client answer and a mismatch result.
+
 # Elevation & depth
 
 Most surfaces are flat. Use a single soft shadow only for floating menus or the focused demo document. Never combine a wide shadow with a heavy border.
