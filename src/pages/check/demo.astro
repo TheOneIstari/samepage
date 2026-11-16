@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <style is:global>
   .client-page { background: #fff; }
 </style>
-<style>
+<style is:global>
   .client-shell { width: min(calc(100% - 32px), 920px); margin-inline: auto; }
   .client-header { border-bottom: 1px solid var(--rule); }
   .client-header > div { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
