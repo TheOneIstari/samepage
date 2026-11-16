@@ -1,0 +1,39 @@
+---
+import Brand from './Brand.astro';
+
+interface Props { active: 'dashboard' | 'new' | 'questionnaire' }
+const { active } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<div class="app-layout">
+  <aside class="app-sidebar">
+    <Brand href={base} />
+    <nav class="app-sidebar__nav" aria-label="Workspace">
+      <a href={`${base}dashboard/`} aria-current={active === 'dashboard' ? 'page' : undefined}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5h16M4 12h16M4 18.5h10" /></svg>
+        Questionnaires
+      </a>
+      <a href={`${base}new/`} aria-current={active === 'new' ? 'page' : undefined}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+        New questionnaire
+      </a>
+      <a href={`${base}dashboard/#insights`}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 19V9m7 10V5m7 14v-7" /></svg>
+        Insights
+      </a>
+    </nav>
+    <div class="app-sidebar__footer">
+      <div class="account">
+        <span class="account__avatar">AS</span>
+        <span><div class="account__name">Atelier North</div><div class="account__plan">Pro demo · 34/50</div></span>
+      </div>
+    </div>
+  </aside>
+  <header class="mobile-appbar">
+    <Brand href={base} />
+    <a class="button button--primary" href={`${base}new/`}>New</a>
+  </header>
+  <main class="app-main" id="main">
+    <div class="app-main__inner"><slot /></div>
+  </main>
+</div>

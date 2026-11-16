@@ -1,0 +1,7 @@
+---
+const { href = import.meta.env.BASE_URL } = Astro.props;
+---
+<a class="brand" href={href} aria-label="SamePage home">
+  <span class="brand__mark" aria-hidden="true"><span></span></span>
+  <span>SamePage</span>
+</a>

@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Brand from '../../components/Brand.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Website redesign agreement check — SamePage" description="Client-facing SamePage questionnaire prototype." noindex bodyClass="client-page">
+  <header class="client-header"><div class="client-shell"><Brand href={base} /><div><span>Shared by</span><strong>Atelier North</strong></div></div></header>
+  <main id="main" class="client-main">
+    <section class="client-intro is-active" data-screen="intro">
+      <div class="client-doc"><span>Agreement check</span><strong>Website redesign agreement</strong><small>Reference SP-2026-041</small></div>
+      <p class="eyebrow">Before you continue</p>
+      <h1>Let’s check that the important points are clear.</h1>
+      <p>This is not a test and it does not change the agreement. Your answers help Atelier North spot anything worth discussing before you sign elsewhere.</p>
+      <ul><li>5 multiple-choice questions</li><li>About 2 minutes</li><li>No account required</li></ul>
+      <button class="button button--primary" type="button" id="start-check">Start the check</button>
+      <p class="client-intro__privacy">Your answers and completion time will be shared with Atelier North.</p>
+    </section>
+
+    <section class="client-quiz" data-screen="quiz">
+      <div class="client-progress"><span><i id="progress-bar"></i></span><strong id="progress-label">Question 1 of 5</strong></div>
+      <article class="client-question" id="client-question" aria-live="polite"></article>
+      <div class="client-actions"><button class="button button--secondary" type="button" id="previous-question" disabled>Back</button><button class="button button--primary" type="button" id="next-question" disabled>Continue</button></div>
+      <button class="sample-answers" type="button" id="sample-answers">Fill the demo with sample answers</button>
+    </section>
+
+    <section class="client-result" data-screen="result">
+      <div class="result-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">Check complete</p>
+      <h1 id="result-title">Two points are worth aligning.</h1>
+      <p id="result-copy">Most expectations match. The two differences below are now visible early, when they are easiest to discuss.</p>
+      <div class="result-list" id="result-list"></div>
+      <div class="result-confirmation"><strong>Your answers were recorded for this demo.</strong><span>In the real product, Atelier North would receive a timestamped result and follow up on these points.</span></div>
+      <a class="button button--secondary" href={base}>Learn more about SamePage</a>
+    </section>
+  </main>
+  <footer class="client-footer"><div class="client-shell"><span>SamePage helps both sides clarify expectations.</span><span>Not legal advice · Demo questionnaire</span></div></footer>
+</BaseLayout>
+
+<style is:global>
+  .client-page { background: #fff; }
+</style>
+<style>
+  .client-shell { width: min(calc(100% - 32px), 920px); margin-inline: auto; }
+  .client-header { border-bottom: 1px solid var(--rule); }
+  .client-header > div { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .client-header > div > div { text-align: right; }
+  .client-header span, .client-header strong { display: block; }
+  .client-header span { color: var(--muted); font-size: .66rem; }
+  .client-header strong { margin-top: 2px; font-size: .8rem; }
+  .client-main { width: min(calc(100% - 32px), 760px); min-height: calc(100vh - 150px); margin-inline: auto; padding: clamp(54px, 9vw, 96px) 0; }
+  [data-screen] { display: none; }
+  [data-screen].is-active { display: block; animation: enter .25s ease both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(8px); } }
+  .client-intro { max-width: 650px; margin-inline: auto; }
+  .client-doc { margin-bottom: 56px; padding: 17px 0; border-block: 1px solid var(--rule); display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; }
+  .client-doc span { color: var(--action); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+  .client-doc strong { text-align: center; font-size: .85rem; }
+  .client-doc small { color: var(--muted); }
+  .client-intro h1, .client-result h1 { max-width: 15ch; margin: 0; font-size: clamp(2.3rem, 7vw, 4.2rem); line-height: 1.02; letter-spacing: -.05em; font-weight: 560; }
+  .client-intro > p:not(.eyebrow):not(.client-intro__privacy), .client-result > p:not(.eyebrow) { max-width: 57ch; color: var(--muted); line-height: 1.65; font-size: 1.04rem; }
+  .client-intro ul { margin: 28px 0; padding: 18px 0; border-block: 1px solid var(--rule); list-style: none; display: flex; gap: 25px; color: var(--muted); font-size: .82rem; }
+  .client-intro ul li::before { content: "✓"; margin-right: 7px; color: var(--success); font-weight: 700; }
+  .client-intro__privacy { margin-top: 18px; color: var(--muted); font-size: .72rem; }
+  .client-progress { margin-bottom: 52px; display: flex; align-items: center; gap: 16px; }
+  .client-progress > span { flex: 1; height: 4px; background: var(--rule); overflow: hidden; }
+  .client-progress i { display: block; width: 20%; height: 100%; background: var(--action); transition: width .25s ease; }
+  .client-progress strong { color: var(--muted); font-size: .75rem; white-space: nowrap; }
+  .client-question__topic { color: var(--action); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .client-question h1 { max-width: 19ch; margin: 14px 0 30px; font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.14; letter-spacing: -.035em; font-weight: 570; }
+  .client-options { display: grid; gap: 10px; }
+  .client-options label { position: relative; }
+  .client-options input { position: absolute; opacity: 0; }
+  .client-options span { min-height: 62px; padding: 14px 17px; border: 1px solid var(--rule-strong); border-radius: 8px; display: flex; align-items: center; gap: 13px; cursor: pointer; transition: .15s ease; }
+  .client-options span::before { content: ""; flex: none; width: 18px; height: 18px; border: 1px solid var(--rule-strong); border-radius: 50%; }
+  .client-options span:hover { border-color: var(--action); }
+  .client-options input:checked + span { color: var(--action); border-color: var(--action); background: var(--action-soft); box-shadow: inset 0 0 0 1px var(--action); }
+  .client-options input:checked + span::before { border: 5px solid var(--action); background: white; }
+  .client-question__unclear { margin-top: 16px; color: var(--muted); font-size: .78rem; }
+  .client-question__unclear button { border: 0; background: none; color: var(--action); padding: 0; text-decoration: underline; cursor: pointer; }
+  .client-actions { margin-top: 38px; display: flex; justify-content: space-between; gap: 12px; }
+  .sample-answers { display: block; margin: 28px auto 0; padding: 6px; border: 0; background: transparent; color: var(--muted); font-size: .72rem; text-decoration: underline; cursor: pointer; }
+  .client-result { max-width: 680px; margin-inline: auto; }
+  .result-mark { position: relative; width: 64px; height: 64px; margin-bottom: 28px; border: 1px solid #edc6a8; border-radius: 50%; background: var(--alignment-soft); }
+  .result-mark::before, .result-mark::after { content: ""; position: absolute; top: 19px; width: 12px; height: 25px; border: 2px solid var(--alignment); }
+  .result-mark::before { left: 14px; border-right: 0; }
+  .result-mark::after { right: 14px; border-left: 0; }
+  .result-mark span { position: absolute; top: 31px; left: 26px; width: 12px; height: 2px; background: var(--alignment); }
+  .result-list { margin: 34px 0; border-top: 1px solid var(--rule-strong); }
+  .result-item { padding: 18px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 28px 1fr; gap: 10px; }
+  .result-item b { color: var(--alignment); }
+  .result-item strong, .result-item span { display: block; }
+  .result-item strong { font-size: .9rem; }
+  .result-item span { margin-top: 4px; color: var(--muted); font-size: .78rem; line-height: 1.45; }
+  .result-confirmation { margin-bottom: 28px; padding: 18px; border-left: 3px solid var(--success); background: var(--success-soft); }
+  .result-confirmation strong, .result-confirmation span { display: block; }
+  .result-confirmation strong { font-size: .86rem; }
+  .result-confirmation span { margin-top: 5px; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+  .client-footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .72rem; }
+  .client-footer > div { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  @media (max-width: 620px) {
+    .client-doc { grid-template-columns: 1fr; gap: 5px; }
+    .client-doc strong { text-align: left; }
+    .client-intro ul { align-items: flex-start; flex-direction: column; gap: 10px; }
+    .client-actions { flex-direction: column-reverse; }
+    .client-actions .button { width: 100%; }
+    .client-footer > div { padding-block: 20px; align-items: flex-start; flex-direction: column; }
+  }
+</style>
+
+<script>
+  const questions = [
+    { topic: 'Scope', text: 'What counts as one revision round?', options: ['Feedback collected across the whole project', 'A separate round for every page'], intended: 0 },
+    { topic: 'Responsibility', text: 'Who must provide final copy and images before design starts?', options: ['The client', 'The designer'], intended: 0 },
+    { topic: 'Timing', text: 'When does the four-week delivery estimate begin?', options: ['When the agreement is signed', 'When all required content is received'], intended: 1 },
+    { topic: 'Changes', text: 'What happens when feedback arrives after an approval?', options: ['It is included automatically', 'It may require a separate estimate'], intended: 1 },
+    { topic: 'Assumptions', text: 'Which browser versions are included in testing?', options: ['Current major versions listed in the agreement', 'Every browser version still in use'], intended: 0 },
+  ];
+  const sample = [1, 0, 1, 0, 0];
+  const answers: Array<number | null> = Array(questions.length).fill(null);
+  let current = 0;
+  const screens = [...document.querySelectorAll<HTMLElement>('[data-screen]')];
+  const questionNode = document.querySelector<HTMLElement>('#client-question');
+  const label = document.querySelector<HTMLElement>('#progress-label');
+  const bar = document.querySelector<HTMLElement>('#progress-bar');
+  const previous = document.querySelector<HTMLButtonElement>('#previous-question');
+  const next = document.querySelector<HTMLButtonElement>('#next-question');
+
+  function screen(name: string) { screens.forEach((item) => item.classList.toggle('is-active', item.dataset.screen === name)); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  function render() {
+    const question = questions[current];
+    if (!questionNode) return;
+    questionNode.innerHTML = `<span class="client-question__topic">${question.topic}</span><h1>${question.text}</h1><div class="client-options">${question.options.map((option, index) => `<label><input type="radio" name="answer" value="${index}" ${answers[current] === index ? 'checked' : ''}><span>${option}</span></label>`).join('')}</div><p class="client-question__unclear">Neither answer matches what you understood? <button type="button" id="mark-unclear">Mark this point as unclear</button></p>`;
+    if (label) label.textContent = `Question ${current + 1} of ${questions.length}`;
+    if (bar) bar.style.width = `${((current + 1) / questions.length) * 100}%`;
+    if (previous) previous.disabled = current === 0;
+    if (next) { next.disabled = answers[current] === null; next.textContent = current === questions.length - 1 ? 'Finish check' : 'Continue'; }
+    questionNode.querySelectorAll<HTMLInputElement>('input[name="answer"]').forEach((input) => input.addEventListener('change', () => { answers[current] = Number(input.value); if (next) next.disabled = false; }));
+    questionNode.querySelector<HTMLButtonElement>('#mark-unclear')?.addEventListener('click', () => { answers[current] = -1; if (next) next.disabled = false; document.dispatchEvent(new CustomEvent('samepage:toast', { detail: 'Marked as unclear' })); });
+  }
+  function finish() {
+    const differences = questions.map((q, i) => ({ ...q, answer: answers[i] })).filter((q) => q.answer !== q.intended);
+    const title = document.querySelector<HTMLElement>('#result-title');
+    const copy = document.querySelector<HTMLElement>('#result-copy');
+    const list = document.querySelector<HTMLElement>('#result-list');
+    if (title) title.textContent = differences.length ? `${differences.length} ${differences.length === 1 ? 'point is' : 'points are'} worth aligning.` : 'Everything appears aligned.';
+    if (copy) copy.textContent = differences.length ? 'Most expectations match. The differences below are now visible early, when they are easiest to discuss.' : 'Your answers match the intended meaning on every question. Atelier North now has a clear record of that alignment.';
+    if (list) list.innerHTML = differences.length ? differences.map((item) => `<div class="result-item"><b>↔</b><div><strong>${item.topic}: ${item.text}</strong><span>${item.answer === -1 ? 'You marked this point as unclear.' : `You selected “${item.options[item.answer ?? 0]}”.`}</span></div></div>`).join('') : '<div class="result-item"><b>✓</b><div><strong>No differing answers</strong><span>All five points matched the intended meaning.</span></div></div>';
+    screen('result');
+  }
+  document.querySelector('#start-check')?.addEventListener('click', () => { screen('quiz'); render(); });
+  previous?.addEventListener('click', () => { if (current > 0) { current -= 1; render(); } });
+  next?.addEventListener('click', () => { if (answers[current] === null) return; if (current < questions.length - 1) { current += 1; render(); } else finish(); });
+  document.querySelector('#sample-answers')?.addEventListener('click', () => { sample.forEach((answer, i) => { answers[i] = answer; }); current = questions.length - 1; render(); document.dispatchEvent(new CustomEvent('samepage:toast', { detail: 'Demo answers filled' })); });
+</script>

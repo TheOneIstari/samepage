@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppShell from '../components/AppShell.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Website redesign agreement — SamePage" description="SamePage questionnaire detail prototype." noindex>
+  <AppShell active="questionnaire">
+    <a class="detail-back" href={`${base}dashboard/`}>← All questionnaires</a>
+    <header class="detail-header">
+      <div><div class="detail-header__meta"><span class="status status--review">2 points to align</span><span>SP-2026-041 · Version 1</span></div><h1>Website redesign agreement</h1><p>Northwind Studio · Professional client</p></div>
+      <div class="detail-header__actions"><button class="button button--secondary" id="copy-detail-link">Copy link</button><a class="button button--secondary" href={`${base}new/?duplicate=website-redesign`}>Duplicate</a><a class="button button--primary" href={`${base}check/demo/`}>Open client view</a></div>
+    </header>
+
+    <section class="response-summary">
+      <div class="response-summary__progress"><strong>5 of 5 answered</strong><span><i></i></span><small>Completed today at 10:42</small></div>
+      <p>Northwind Studio understood three points as intended. Two answers need a short conversation before you proceed.</p>
+    </section>
+
+    <section class="answer-list" aria-labelledby="answers-title">
+      <div class="answer-list__head"><h2 id="answers-title">Answer review</h2><span>Intended meaning compared with client answer</span></div>
+      <article class="answer answer--mismatch">
+        <div class="answer__number">01</div><div class="answer__body"><h3>What counts as one revision round?</h3><div class="answer__compare"><div><small>Your intended meaning</small><p>Feedback collected across the whole project.</p></div><div><small>Client answered</small><p>A separate round for every page.</p></div></div></div><span class="status status--review">Discuss</span>
+      </article>
+      <article class="answer answer--aligned">
+        <div class="answer__number">02</div><div class="answer__body"><h3>Who must provide final copy and images before design starts?</h3><div class="answer__compare"><div><small>Your intended meaning</small><p>The client.</p></div><div><small>Client answered</small><p>The client.</p></div></div></div><span class="status status--complete">Aligned</span>
+      </article>
+      <article class="answer answer--aligned">
+        <div class="answer__number">03</div><div class="answer__body"><h3>When does the four-week delivery estimate begin?</h3><div class="answer__compare"><div><small>Your intended meaning</small><p>When all required content is received.</p></div><div><small>Client answered</small><p>When all required content is received.</p></div></div></div><span class="status status--complete">Aligned</span>
+      </article>
+      <article class="answer answer--mismatch">
+        <div class="answer__number">04</div><div class="answer__body"><h3>What happens when feedback arrives after an approval?</h3><div class="answer__compare"><div><small>Your intended meaning</small><p>It may require a separate estimate.</p></div><div><small>Client answered</small><p>It is included automatically.</p></div></div></div><span class="status status--review">Discuss</span>
+      </article>
+      <article class="answer answer--aligned">
+        <div class="answer__number">05</div><div class="answer__body"><h3>Which browser versions are included in testing?</h3><div class="answer__compare"><div><small>Your intended meaning</small><p>Current major versions listed in the agreement.</p></div><div><small>Client answered</small><p>Current major versions listed in the agreement.</p></div></div></div><span class="status status--complete">Aligned</span>
+      </article>
+    </section>
+
+    <section class="resolution">
+      <div><p class="eyebrow">After the conversation</p><h2>Record that both points were clarified.</h2><p>SamePage keeps the answer trail and resolution timestamp. It does not change or sign the agreement.</p></div>
+      <button class="button button--primary" id="mark-aligned">Mark all as aligned</button>
+    </section>
+  </AppShell>
+</BaseLayout>
+
+<style>
+  .detail-back { display: inline-block; margin-bottom: 22px; color: var(--muted); font-size: .82rem; font-weight: 600; text-decoration: none; }
+  .detail-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 34px; }
+  .detail-header__meta { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: .76rem; }
+  .detail-header h1 { margin: 14px 0 5px; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 570; }
+  .detail-header p { margin: 0; color: var(--muted); }
+  .detail-header__actions { display: flex; gap: 8px; }
+  .response-summary { padding: 26px 0; border-block: 1px solid var(--rule-strong); display: grid; grid-template-columns: 310px 1fr; gap: 60px; align-items: center; }
+  .response-summary__progress { display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; align-items: center; }
+  .response-summary__progress strong { font-size: .88rem; }
+  .response-summary__progress > span { height: 6px; border-radius: 4px; background: var(--rule); overflow: hidden; }
+  .response-summary__progress i { display: block; width: 100%; height: 100%; background: var(--success); }
+  .response-summary__progress small { grid-column: 1 / -1; color: var(--muted); }
+  .response-summary p { max-width: 64ch; margin: 0; color: var(--muted); line-height: 1.55; }
+  .answer-list { margin-top: 48px; }
+  .answer-list__head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding-bottom: 13px; border-bottom: 1px solid var(--rule-strong); }
+  .answer-list__head h2 { margin: 0; font-size: 1.15rem; }
+  .answer-list__head span { color: var(--muted); font-size: .74rem; }
+  .answer { display: grid; grid-template-columns: 38px 1fr auto; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .answer__number { color: var(--muted); font-size: .72rem; font-weight: 700; }
+  .answer h3 { margin: 0 0 15px; font-size: 1rem; font-weight: 620; }
+  .answer__compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .answer__compare > div { padding: 13px 14px; border-left: 2px solid var(--rule-strong); }
+  .answer--mismatch .answer__compare > div:last-child { border-left-color: var(--alignment); background: var(--alignment-soft); }
+  .answer--aligned .answer__compare > div:last-child { border-left-color: var(--success); background: var(--success-soft); }
+  .answer small { color: var(--muted); font-size: .68rem; }
+  .answer p { margin: 5px 0 0; font-size: .82rem; line-height: 1.45; }
+  .resolution { margin-top: 58px; padding: 30px; background: var(--ink); color: white; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+  .resolution .eyebrow { color: #aebdff; }
+  .resolution h2 { margin: 0 0 8px; font-size: 1.45rem; font-weight: 570; }
+  .resolution p { max-width: 62ch; margin: 0; color: #adb6c7; line-height: 1.5; font-size: .83rem; }
+  @media (max-width: 850px) {
+    .detail-header { align-items: stretch; flex-direction: column; }
+    .detail-header__actions { flex-wrap: wrap; }
+    .response-summary { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media (max-width: 600px) {
+    .detail-header__actions .button { flex: 1 1 45%; }
+    .answer { grid-template-columns: 28px 1fr; }
+    .answer > .status { grid-column: 2; justify-self: start; }
+    .answer__compare { grid-template-columns: 1fr; }
+    .answer-list__head span { display: none; }
+    .resolution { align-items: stretch; flex-direction: column; }
+  }
+</style>
+
+<script>
+  document.querySelector<HTMLButtonElement>('#copy-detail-link')?.addEventListener('click', async (event) => {
+    try { await navigator.clipboard.writeText(window.location.href.replace('/questionnaire/', '/check/demo/')); } catch { /* no-op */ }
+    (event.currentTarget as HTMLButtonElement).textContent = 'Copied';
+    document.dispatchEvent(new CustomEvent('samepage:toast', { detail: 'Client link copied' }));
+  });
+  document.querySelector<HTMLButtonElement>('#mark-aligned')?.addEventListener('click', (event) => {
+    document.querySelectorAll('.status--review').forEach((status) => { status.className = 'status status--complete'; status.textContent = 'Aligned'; });
+    (event.currentTarget as HTMLButtonElement).textContent = 'Alignment recorded';
+    (event.currentTarget as HTMLButtonElement).disabled = true;
+    document.dispatchEvent(new CustomEvent('samepage:toast', { detail: 'All points marked as aligned' }));
+  });
+</script>
